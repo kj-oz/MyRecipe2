@@ -1,0 +1,95 @@
+{%}dt-navbar-recipes{%}
+<div class="ui-header ui-bar-b" role="banner" data-id="$(._id)">$(.title)</div>
+
+{%}dt-title{%}
+$(.title)
+
+{%}dt-source{%}
+$(.source)
+
+{%}dt-source-with-link{%}
+<a href=$(.link) target="_blank">$(.source)</a>
+
+{%}dt-rank{%}
+$(.expression)
+
+{%}dt-difficulty{%}
+$(.expression)
+
+{%}dt-category{%}
+$(.category)
+
+{%}dt-description{%}
+<p>$(.description)</p>
+
+{%}dt-ingredients-header{%}
+<h4>材料　($(.numPeople))</h4>
+
+{%}dt-ingredients-header-only{%}
+<h4>材料</h4>
+
+{%}dt-ingredients{%}
+<div class="dt-ingredient">
+	<div class="dt-ingredient-name">$(.name)</div>
+	<div class="dt-ingredient-quantity">$(.quantity)</div>
+</div>
+
+{%}dt-memo{%}
+<h4>メモ</h4>
+<p>$(.memo)</P>
+
+{%}dt-steps{%}
+<tr class='dt-step-row' valign='top'>
+  <td class='dt-step-no'>$(.index)</td>
+  <td class='dt-step-description'>$(.value)</td>
+</tr>
+
+{%}dt-advise{%}
+<h4>コツ</h4>
+<p>$(.advise)</p>
+
+{%}ls-keyword{%}
+<input type="text" id="ls-keyword" value="$(.keyword)" />
+
+{%}ls-recipes{%}
+<li>
+  <a href="#$(._id)">
+  <h3>$(.title)</h3>
+  <p>ランク:$(.rank)　手間:$(.difficulty)　[$(.category)]　$(.description)</p>
+  </a>
+</li>
+
+{%}ls-selection{%}
+<li data-icon="delete">
+  <a href="#$(._id)">$(.title)</a>
+</li>
+
+{%}ed-ingredients{%}
+<tr>
+  <td>
+    <input type="text" class="input-name" placeholder="材料名" value="$(.name)">
+  </td>
+  <td>
+    <input type="text" class="input-quantity" placeholder="数量" value="$(.quantity)">
+  </td>
+  <td>
+    <button data-mini="true" data-inline="true" class="btn-remove">消</button>
+  </td>
+  <td>
+    <button data-mini="true" data-inline="true" class="btn-insert">入</button>
+  </td>
+</tr>
+
+{%}ed-steps{%}
+<tr>
+  <td class="step-seq">&nbsp;</td>
+  <td>
+    <textarea>$(.value)</textarea>
+  </td>
+  <td>
+    <button data-mini="true" data-inline="true" class="btn-remove">消</button>
+  </td>
+  <td>
+    <button data-mini="true" data-inline="true" class="btn-insert">入</button>
+  </td>
+</tr>

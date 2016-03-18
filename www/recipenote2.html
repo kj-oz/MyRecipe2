@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html manifest="recipenote.manifest">
+  <head>
+    <title>レシピ帳</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="lib/jquery.mobile-1.1.2.css"/>
+    <link rel="stylesheet" href="recipenote.css"/>
+    <script src="lib/jquery-1.8.3.min.js" ></script>
+    <script src="lib/snbinder-0.5.3.js"></script>
+    <script src="lib/jquery.mobile-1.1.2.min.js"></script>
+    <script src="cordova.js"></script>
+    <script src="lib/KiiSDK.js"></script>
+    <script src="idleTimer.js"></script>
+    <script src="kojs.js"></script>
+    <script src="secret.js"></script>
+    <script src="logger.js"></script>
+    <script src="changePasswordPage.js"></script>
+    <script src="dao2.js"></script>
+    <script src="recipe.js"></script>
+    <script src="repository2.js"></script>
+    <script src="loginPage.js"></script>
+    <script src="signupPage.js"></script>
+    <script src="detailPage.js"></script>
+    <script src="listPage2.js"></script>
+    <script src="editPage.js"></script>
+    <script src="recipenote2.js"></script>
+    <!--script src="http://localhost:8080/target/target-script-min.js#myrecipe"></script-->
+  </head>
+  <body>
+    <section data-role="page" id="dummy-page" data-title="レシピ帳">
+      <nav id="dm-navbar" data-role="header" data-theme="b">
+        <h1>レシピ帳</h1>
+      </nav>
+      <ul id ="dm-message" data-role="listview" data-inset=“true”>
+        <li data-role=“list-divider” data-theme="e"  data-icon="false"><a href="#">サーバーと同期中</a></li>
+        <li data-theme="e" ><h2>しばらくお待ちください。</h2></li>
+      </ul>
+    </section>
+    <section data-role="page" id="login-page" data-title="レシピ帳">
+      <label for="lg-mailaddress">E-mailアドレス</label>
+      <input type="email" id="lg-mailaddress" value="" />
+      <label for="lg-password">パスワード</label>
+      <input type="password" id="lg-password" value="" />
+      <a href="#" id="lg-signup">新規登録</a>
+      <span>&emsp;</span>
+      <a href="#" id="lg-resetpassword">パスワードのリセット</a>
+      <br />
+      <input type="button" id="lg-login" data-inline="true" value="ログイン" />
+      <input type="button" id="lg-cancel" data-inline="true" value="キャンセル" />
+    </section>
+    <section data-role="page" id="signup-page" data-title="レシピ帳">
+      <label for="su-mailaddress">E-mailアドレス</label>
+      <input type="email" id="su-mailaddress" value="" />
+      <label for="su-password1">パスワード</label>
+      <input type="password" id="su-password1" value="" />
+      <label for="su-password2">パスワード(確認用）</label>
+      <input type="password" id="su-password2" value="" />
+      <input type="button" id="su-signup" data-inline="true" value="登録" />
+      <input type="button" id="su-cancel" data-inline="true" value="キャンセル" />
+    </section>
+    <section data-role="page" id="changepassword-page" data-title="レシピ帳">
+      <label for="cp-oldpassword">現在のパスワード</label>
+      <input type="password" id="cp-oldpassword" value="" />
+      <label for="cp-password1">新しいパスワード</label>
+      <input type="password" id="cp-password1" value="" />
+      <label for="cp-password2">新しいパスワード(確認用)</label>
+      <input type="password" id="cp-password2" value="" />
+      <input type="button" id="cp-commit" data-inline="true" value="変更" />
+      <input type="button" id="cp-cancel" data-inline="true" value="キャンセル" />
+    </section>
+    <section data-role="page" id="detail-page" data-title="レシピ帳">
+      <nav id="dt-navbar">
+        <div id="dt-navbar-title" data-role="header" data-theme="b">
+          <a href="#" data-iconpos="left" data-icon="arrow-l">一覧</a>
+        </div>
+        <div id="dt-navbar-recipes"></div>
+      </nav>
+      <div id="dt-content-header">
+        <div id="dt-content-header-left">
+          <h1 id="dt-title"></h1>
+          <p>出典:　<span id="dt-source"></span></p>
+        </div>
+        <div id="dt-content-header-center">
+          <table>
+            <tbody>
+              <tr><td>ランク:　</td><td id="dt-rank"></td></tr>
+              <tr><td>手間:　</td><td id="dt-difficulty"></td></tr>
+              <tr><td>カテゴリー:　</td><td id="dt-category"></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="dt-content-header-right">
+          <a href="#" data-role="button" id="dt-btn-edit">編集</a>
+        </div>
+      </div>
+      <div id="dt-content">
+        <div id="dt-content-left">
+          <div id="dt-description"></div>
+          <div id="dt-ingredients-header"></div>
+          <div id="dt-ingredients"></div>
+          <div id="dt-memo"></div>
+        </div>
+        <div id="dt-content-right">
+          <table id="dt-steps-table" frame="void" rules="void" >
+            <tbody id="dt-steps">
+            </tbody>
+          </table>
+          <div id="dt-advise"></div>
+        </div>
+      </div>
+    </section>
+    <section data-role="page" id="list-page" data-title="レシピ帳">
+      <nav data-role="header" data-theme="b" id="ls-navbar">
+        <h1>一覧</h1>
+        <a href="#" class="ui-btn-right" data-iconpos="right" data-icon="arrow-r" >表示</a>
+      </nav>
+      <div id ="ls-content" class="ui-grid-b">
+        <div id ="ls-content-left" class="ui-block-a">
+          <ul id ="ls-condition" data-role="listview" data-inset=“true”>
+            <li data-role=“list-divider” data-theme="b" data-icon="delete"><a href="#">条件</a></li>
+            <li data-role=“list-divider” data-theme="b" >キーワード</li>
+            <li data-icon="delete" >
+              <a href="#">
+              <input type="text" id="ls-keyword" value="" />
+              </a>
+            </li>
+            <li data-role=“list-divider” data-theme="b" >ランク</li>
+            <li>
+              <select id="ls-rank-select" data-native-menu="false">
+                <option value="5">5のみ</option>
+                <option value="4">4以上</option>
+                <option value="3">3以上</option>
+                <option value="2">2以上</option>
+                <option value="1">指定しない</option>
+              </select>
+            </li>
+            <li data-role=“list-divider” data-theme="b" >手間</li>
+            <li>
+              <select id="ls-difficulty-select" data-native-menu="false">
+                <option value="5">指定しない</option>
+                <option value="4">4以下</option>
+                <option value="3">3以下</option>
+                <option value="2">2以下</option>
+                <option value="1">1のみ</option>
+              </select>
+            </li>
+            <li data-role=“list-divider” data-theme="b" >カテゴリー</li>
+            <li>
+              <select id="ls-category-select" data-native-menu="false">
+                <option value="主食">主食</option>
+                <option value="主菜">主菜</option>
+                <option value="副菜">副菜</option>
+                <option value="その他">その他</option>
+                <option value="*">指定しない</option>
+              </select>
+            </li>
+            <li data-role=“list-divider” data-theme="b" >並び順</li>
+            <li>
+              <select id="ls-sort-select" data-native-menu="false">
+                <option value="random">ランダム</option>
+                <option value="date">更新日時</option>
+                <option value="rank">ランク</option>
+             </select>
+            </li>
+          </ul>
+        </div>
+        <div id="ls-content-middle" class="ui-block-b">
+          <ul id="ls-recipes" data-role="listview" data-inset=“true”>
+            <li data-role=“list-divider” data-theme="b" data-icon="plus"><a href="#">レシピ一覧</a></li>
+          </ul>
+          <div id="ls-listcontrol" data-role="none">
+            <a href="#" data-role="button" id="ls-listprev" data-icon="arrow-l">前へ</a>
+            <a href="#" data-role="button" id="ls-listpos" data-icon=false></a>
+            <a href="#" data-role="button" id="ls-listnext" data-icon="arrow-r" data-iconpos="right">次へ</a>
+          </div>
+        </div>
+        <div id="ls-content-right" class="ui-block-c">
+          <ul id="ls-selection" data-role="listview" data-inset=“true”>
+            <li data-role=“list-divider” data-theme="b" data-icon="delete"><a href="#">選択レシピ</a></li>
+          </ul>
+          <ul id ="ls-admin" data-role="listview" data-inset=“true”>
+            <li data-role=“list-divider” data-theme="b" data-icon="false"><a href="#">管理</a></li>
+            <li id="ls-admin-remove" data-icon="info">
+              <a href="#">選択レシピ削除</a>
+            </li>
+            <li id="ls-admin-update" data-icon="check">
+              <a href="#">最新の情報に更新</a>
+            </li>
+            <li id="ls-admin-init" data-icon="refresh">
+              <a href="#">オフラインデータ初期化</a>
+            </li>
+            <li id="ls-admin-login" data-icon="arrow-r">
+              <a href="#">ログイン</a>
+            </li>
+            <li id="ls-admin-logout" data-icon="arrow-l">
+              <a href="#">ログアウト</a>
+            </li>
+            <li id="ls-admin-changepassword" data-icon="star">
+              <a href="#">パスワード変更</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section data-role="page" id="edit-page" data-title="レシピ帳">
+      <nav data-role="header" data-theme="b" id="ed-navbar">
+        <h1>編集</h1>
+        <a id="ed-btn-cancel" href="#" class="ui-btn-left" data-icon="delete" >キャンセル</a>
+        <a id="ed-btn-done" href="#" class="ui-btn-right" data-icon="refresh" >完了</a>
+      </nav>
+      <div id="ed-content">
+        <div id="ed-content-left">
+          <div data-role="fieldcontain">
+            <label for="ed-title">タイトル</label>
+            <input type="text" id="ed-title">
+          </div>
+          <div data-role="fieldcontain">
+            <label for="ed-source">出典</label>
+            <input type="text" id="ed-source">
+          </div>
+          <div data-role="fieldcontain">
+            <label for="ed-link">リンク</label>
+            <input type="text" id="ed-link">
+          </div>
+          <div data-role="fieldcontain">
+            <label for="ed-description">補足</label>
+            <textarea id="ed-description"></textarea>
+          </div>
+          <div data-role="fieldcontain">
+            <label for="ed-numpeople">材料</label>
+            ( <input type="text" id="ed-numpeople" placeholder="人分"> )
+          </div>
+          <div>
+            <table id="ed-ingredients-table">
+              <col id="ed-ingredients-col-name" width="60%">
+              <col id="ed-ingredients-col-quantity" width="30%">
+              <col id="ed-ingredients-col-btndel" width="5px">
+              <col id="ed-ingredients-col-btnins" width="5px">
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+          <div data-role="fieldcontain">
+            <label for="ed-memo">メモ</label>
+            <textarea id="ed-memo"></textarea>
+          </div>
+        </div>
+        <div id="ed-content-right">
+          <div data-role="fieldcontain">
+            <label for="ed-rank">ランク</label>
+            <input type="range" id="ed-rank" value="1" min="1" max="5">
+          </div>
+          <div data-role="fieldcontain">
+            <label for="ed-difficulty">手間</label>
+            <input type="range" id="ed-difficulty" value="1" min="1" max="5">
+          </div>
+          <div data-role="fieldcontain">
+            <label for="ed-category">カテゴリー</label>
+            <select id="ed-category" data-native-menu="false">
+              <option value="主食">主食</option>
+              <option value="主菜">主菜</option>
+              <option value="副菜">副菜</option>
+              <option value="その他" selected>その他</option>
+            </select>
+          </div>
+          <div data-role="fieldcontain">
+            <label for="ed-steps-table" class="ui-input-text">手順</label>
+          </div>
+          <div>
+            <table id="ed-steps-table">
+              <col id="ed-steps-col-no" width="3%">
+              <col id="ed-steps-col-desc" width="97%">
+              <col id="ed-steps-col-btndel" width="5px">
+              <col id="ed-steps-col-btnins" width="5px">
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+          <div data-role="fieldcontain">
+            <label for="ed-advise">コツ</label>
+            <textarea id="ed-advise"></textarea>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div id="cookpad"></div>
+  </body>
+</html>

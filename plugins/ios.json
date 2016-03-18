@@ -1,0 +1,21 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "kj.okzk.MyRecipe"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "kj.okzk.MyRecipe"
+        },
+        "at.gofg.sportscomputer.powermanagement": {
+            "PACKAGE_NAME": "kj.okzk.MyRecipe"
+        }
+    },
+    "dependent_plugins": {}
+}

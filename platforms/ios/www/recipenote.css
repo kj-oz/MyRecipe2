@@ -1,0 +1,373 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h3, h4 {
+  color: dodgerblue;
+  text-shadow: none;
+  font-weight: normal;
+}
+
+p, td {
+  line-height: 1.5;
+}
+
+.ui-header .ui-btn {
+  top: 5px;
+}
+
+.ui-dialog-contain {
+  text-shadow: none;
+  color: black;
+}
+
+.ui-dialog-contain label {
+  color: lightgray;
+}
+
+#cookpad {
+  display: none;
+}
+
+#dummy-page {
+  width: 1024px;
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", sans-serif;
+  font-size: 1.2em;
+}
+
+#dm-message {
+  padding: 280px 300px 320px;
+  display: none;
+}
+
+#detail-page {
+  width: 1024px;
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", sans-serif;
+  font-size: 1.2em;
+}
+
+#dt-navbar {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+}
+
+#dt-navbar-title {
+  width: 160px;
+  -webkit-box-flex: 1.0;
+  -moz-box-flex: 1.0;
+  -ms-box-flex: 1.0;
+  box-flex: 1.0;
+}
+
+#dt-navbar-recipes {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  text-align: center;
+  list-style: none;
+  /* これがないと文字が上による */
+  line-height: 45px;
+}
+
+#dt-navbar-recipes div {
+  width: 157px;
+  padding: 0 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  border-left: 1px solid #AAA;
+}
+
+#dt-navbar-recipes .selected {
+  background: #f7931e;
+}
+
+#dt-content-header {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  margin: 0 20px;
+  padding: 10px 0;
+  width: 984px;
+  border-bottom: 1px solid darkturquoise;
+}
+
+#dt-content-header-left {
+  -webkit-box-flex: 1.0;
+  -moz-box-flex: 1.0;
+  -ms-box-flex: 1.0;
+  box-flex: 1.0;
+  font-size: 0.8em;
+}
+
+#dt-title {
+  color: dodgerblue;
+  text-shadow: none;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+#dt-content-header-center {
+  color: black;
+  font-weight: normal;
+  font-size: 0.8em;
+  padding: 0;
+}
+
+#dt-content-header-right {
+  padding: 6px 0 0 20px;
+}
+
+#dt-content {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  height: 606px;
+  width: 1024px;
+  overflow: scroll;
+}
+
+#dt-content-left {
+  width: 408px;
+  margin: 20px 0;
+  padding: 0 20px;
+  border-right: 1px solid darkturquoise;
+}
+
+#dt-description {
+  margin: 0 0 30px;
+}
+
+.dt-ingredient {
+  border-bottom: 1px solid darkturquoise;
+  clear: both;
+}
+
+.dt-ingredient-name {
+  float: left;
+  text-align: left;
+}
+
+.dt-ingredient-quantity {
+  float: right;
+  text-align: right;
+}
+
+#dt-memo {
+  clear: both;
+  margin: 30px 0 0;
+}
+
+#dt-content-right {
+  width: 600px;
+  margin: 10px 0;
+  padding: 0 10px;
+}
+
+#dt-steps-table {
+  border-spacing: 10px;
+  line-height: 1.5;
+}
+
+#dt-steps {
+}
+
+.dt-step-no {
+  color: dodgerblue;
+  text-shadow: none;
+}
+
+.dt-step-description {
+}
+
+#dt-advise {
+  margin: 20px 0 0;
+}
+
+#dt-advise p {
+  padding-left: 20px;
+}
+
+#list-page {
+  width: 1024px;
+}
+
+#ls-content-left {
+  width: 256px;
+  padding: 15px 0 15px 15px;
+}
+
+#ls-content-middle {
+  width: 512px;
+  padding: 15px 15px;
+}
+
+#ls-content-right {
+  width: 256px;
+  padding: 15px 15px 15px 0;
+}
+
+#ls-condition li:first-child a.ui-link-inherit {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ls-condition li:nth-child(3) {
+  background-color: #f9f9f9;
+  border-color: #aaa;
+}
+
+#ls-keyword {
+  padding-right: 0px;
+}
+
+#ls-recipes a.ui-link-inherit {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+#ls-recipes li:first-child a.ui-link-inherit {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ls-listcontrol {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+}
+
+#ls-listpos {
+  -webkit-box-flex: 1.0;
+  -moz-box-flex: 1.0;
+  -ms-box-flex: 1.0;
+  box-flex: 1.0;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-box-pack: center;
+  box-pack: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+  padding-top: 9px;
+}
+
+#ls-listnext {
+  -webkit-box-pack: right;
+  -moz-box-pack: right;
+  -ms-box-pack: right;
+  box-pack: right;
+}
+
+#ls-selection li:first-child a.ui-link-inherit {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ls-admin {
+  margin-top: 20px;
+}
+
+#ls-admin li:first-child a.ui-link-inherit {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ls-content .ui-btn {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+#edit-page {
+  width: 1024px;
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", sans-serif;
+  font-size: 1.2em;
+}
+
+#ed-content {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+}
+
+#ed-title, #ed-description, #ed-memo, #ed-source, #ed-link, #ed-advise {
+  width: 75%;
+  display: inline-block;
+}
+
+#ed-content td .ui-btn-inline {
+  margin: 0 0 0 5px;
+}
+
+#ed-content td .ui-btn-inner {
+  padding: .35em 7px .3em;
+}
+
+#ed-content-left {
+  width: 512px;
+  margin: 20px 0;
+  padding: 0 20px;
+  border-right: 1px solid darkturquoise;
+}
+
+#ed-numpeople {
+  width: 30%;
+}
+
+#ed-intgredients-table {
+  border-spacing: 10px;
+  margin: -20px -10px 0;
+}
+
+#ed-intgredients-table td {
+  vertical-align: top;
+}
+
+#ed-intgredients-table td input {
+  margin: 0;
+}
+
+#ed-intgredients-table td div {
+  margin: 0;
+}
+
+#ed-content-right {
+  width: 512px;
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+#ed-steps-table {
+  margin: -20px -10px 0;
+  counter-reset: seq;
+}
+
+#ed-steps-table td {
+  vertical-align: top;
+}
+
+#ed-steps-table td.step-seq {
+  counter-increment: seq;
+  font-size: 0.8em;
+}
+
+#ed-steps-table td.step-seq:before {
+  content: " " counter(seq);
+}
+
+#ed-steps-table td textarea {
+  margin: 0;
+}
