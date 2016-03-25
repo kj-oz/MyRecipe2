@@ -5,12 +5,14 @@ MyRecipeは、料理のレシピを個人的に登録、閲覧するための Co
 
 アプリケーションのほとんどの部分は、HTML、JavaScript、CSSで書かれており、Cordovaから提供されるメイン部分のみObjective-Cが使用されています。
 
+Cordovaのバージョンを、2.5から6.0にあげたのに伴い、フォルダーの構成が大幅に変化したため、新たにMyRecipe2という形でリポジトリを作成しました。過去のバージョンのソースはリポジトリMyRecipeに残してありますので、必要に応じてご覧下さい。
+
 このソースからビルドされるアプリケーションは、Apple社のAppStoreで **レシピ帳** という名称で
 無料で配信中です。  
 　[https://itunes.apple.com/us/app/reshipi-zhang/id641147266?l=ja&ls=1&mt=8][AppStore]
 
 また、同じアプリをWebアプリとして以下のアドレスで配信していますので、すぐにブラウザでお試しいただけます。
-（ただし、2014/09現在、IE、Firefoxでは正常に動作しませんのでご注意ください）
+（ただし、2016/03現在、IE、Firefoxでは正常に動作しませんのでご注意ください）
 　[http://recipenote.herokuapp.com/recipenote2.html][Heroku]
 
 画面イメージや使い方は、以下のページをご覧下さい。  
