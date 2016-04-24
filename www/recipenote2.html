@@ -33,7 +33,7 @@
         <h1>レシピ帳</h1>
       </nav>
       <ul id ="dm-message" data-role="listview" data-inset=“true”>
-        <li data-role=“list-divider” data-theme="e"  data-icon="false"><a href="#">サーバーと同期中</a></li>
+        <li data-theme="e"  data-icon="false"><a href="#">サーバーと同期中</a></li>
         <li data-theme="e" ><h2>しばらくお待ちください。</h2></li>
       </ul>
     </section>
@@ -69,7 +69,7 @@
       <input type="button" id="cp-commit" data-inline="true" value="変更" />
       <input type="button" id="cp-cancel" data-inline="true" value="キャンセル" />
     </section>
-    <section data-role="page" id="detail-page" data-title="レシピ帳">
+    <section data-role="page" id="detail-page" data-title="レシピ帳" data-theme="d">
       <nav id="dt-navbar">
         <div id="dt-navbar-title" data-role="header" data-theme="b">
           <a href="#" data-iconpos="left" data-icon="arrow-l">一覧</a>
@@ -110,7 +110,7 @@
         </div>
       </div>
     </section>
-    <section data-role="page" id="list-page" data-title="レシピ帳">
+    <section data-role="page" id="list-page" data-title="レシピ帳" data-theme="d">
       <nav data-role="header" data-theme="b" id="ls-navbar">
         <h1>一覧</h1>
         <a href="#" class="ui-btn-right" data-iconpos="right" data-icon="arrow-r" >表示</a>
@@ -118,14 +118,14 @@
       <div id ="ls-content" class="ui-grid-b">
         <div id ="ls-content-left" class="ui-block-a">
           <ul id ="ls-condition" data-role="listview" data-inset=“true”>
-            <li data-role=“list-divider” data-theme="b" data-icon="delete"><a href="#">条件</a></li>
-            <li data-role=“list-divider” data-theme="b" >キーワード</li>
+            <li data-theme="b" data-icon="delete"><a href="#">条件</a></li>
+            <li data-theme="c" >キーワード</li>
             <li data-icon="delete" >
               <a href="#">
               <input type="text" id="ls-keyword" value="" />
               </a>
             </li>
-            <li data-role=“list-divider” data-theme="b" >ランク</li>
+            <li data-theme="c" >ランク</li>
             <li>
               <select id="ls-rank-select" data-native-menu="false">
                 <option value="5">5のみ</option>
@@ -135,7 +135,7 @@
                 <option value="1">指定しない</option>
               </select>
             </li>
-            <li data-role=“list-divider” data-theme="b" >手間</li>
+            <li data-theme="c" >手間</li>
             <li>
               <select id="ls-difficulty-select" data-native-menu="false">
                 <option value="5">指定しない</option>
@@ -145,7 +145,7 @@
                 <option value="1">1のみ</option>
               </select>
             </li>
-            <li data-role=“list-divider” data-theme="b" >カテゴリー</li>
+            <li data-theme="c" >カテゴリー</li>
             <li>
               <select id="ls-category-select" data-native-menu="false">
                 <option value="主食">主食</option>
@@ -155,7 +155,7 @@
                 <option value="*">指定しない</option>
               </select>
             </li>
-            <li data-role=“list-divider” data-theme="b" >並び順</li>
+            <li data-theme="c" >並び順</li>
             <li>
               <select id="ls-sort-select" data-native-menu="false">
                 <option value="random">ランダム</option>
@@ -166,8 +166,8 @@
           </ul>
         </div>
         <div id="ls-content-middle" class="ui-block-b">
-          <ul id="ls-recipes" data-role="listview" data-inset=“true”>
-            <li data-role=“list-divider” data-theme="b" data-icon="plus"><a href="#">レシピ一覧</a></li>
+          <ul id="ls-recipes" data-role="listview" data-theme="d" data-inset=“true”>
+            <li data-theme="b" data-icon="plus"><a href="#">レシピ一覧</a></li>
           </ul>
           <div id="ls-listcontrol" data-role="none">
             <a href="#" data-role="button" id="ls-listprev" data-icon="arrow-l">前へ</a>
@@ -176,11 +176,11 @@
           </div>
         </div>
         <div id="ls-content-right" class="ui-block-c">
-          <ul id="ls-selection" data-role="listview" data-inset=“true”>
-            <li data-role=“list-divider” data-theme="b" data-icon="delete"><a href="#">選択レシピ</a></li>
+          <ul id="ls-selection" data-role="listview" data-theme="d" data-inset=“true”>
+            <li data-theme="b" data-icon="delete"><a href="#">選択レシピ</a></li>
           </ul>
           <ul id ="ls-admin" data-role="listview" data-inset=“true”>
-            <li data-role=“list-divider” data-theme="b" data-icon="false"><a href="#">管理</a></li>
+            <li data-theme="b" data-icon="false"><a href="#">管理</a></li>
             <li id="ls-admin-remove" data-icon="info">
               <a href="#">選択レシピ削除</a>
             </li>
@@ -203,7 +203,7 @@
         </div>
       </div>
     </section>
-    <section data-role="page" id="edit-page" data-title="レシピ帳">
+    <section data-role="page" id="edit-page" data-title="レシピ帳" data-theme="d">
       <nav data-role="header" data-theme="b" id="ed-navbar">
         <h1>編集</h1>
         <a id="ed-btn-cancel" href="#" class="ui-btn-left" data-icon="delete" >キャンセル</a>

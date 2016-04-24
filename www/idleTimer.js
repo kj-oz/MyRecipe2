@@ -49,7 +49,7 @@
    * @param {Number} period 無効化の持続時間（分数）
    */
   IdleTimer.prototype.setIdleTimer = function(successFunc, errorFunc, status, period) {
-    if (cordova && cordova.exec) {
+    if (window.cordova && window.cordova.exec) {
       console.log("idletimer " + status);
       if (status === "") {
         return _status;
