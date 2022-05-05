@@ -18,7 +18,8 @@ KOJS.recipe.page.EditPage = (function () {
         return;
       }
 
-      var self = this;
+      var self = this,
+          tabPressed = false;
 
       // 編集ページ初回表示時イベントの定義
       $("#edit-page").on("pagebeforecreate", function (event) {
@@ -148,6 +149,16 @@ KOJS.recipe.page.EditPage = (function () {
             $row = $("#ed-steps-table tr:last");
             $row.find("textarea").textinput();
             $row.find("button").button();
+            if (tabPressed) {
+              $row.find("textarea").focus();
+              tabPressed = false;
+            }
+          }
+        });
+
+        $("#ed-steps-table").on("keydown", "textarea",  function (e) {
+          if (e.which === 9) {
+            tabPressed = true;
           }
         });
       });

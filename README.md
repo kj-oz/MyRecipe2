@@ -56,7 +56,7 @@ Cordovaのバージョンを、2.5から6.0にあげたのに伴い、フォル�
 -----
 **iPad版**
 
-iOS 6.0以上、iPad専用
+iOS 12.0以上、iPad専用
 
 **Web版** （2015/03/25時点で動作確認済みのもの）
 
@@ -73,7 +73,7 @@ Windows
  [MIT License][mit]. の元で公開します。  
 
 -----
-Copyright &copy; 2013 Kj Oz  
+Copyright &copy; 2022 Kj Oz  
 
 [AppStore]: https://itunes.apple.com/us/app/reshipi-zhang/id641147266?l=ja&ls=1&mt=8
 [Heroku]: http://recipenote.herokuapp.com/recipenote2.html
